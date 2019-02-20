@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{C981D3A0-8D46-48F6-90AB-DD602032B604}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="AppConsole.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="AppFormsVcl.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="AppConsole">
+        <MSBuild Projects="AppConsole.cbproj"/>
+    </Target>
+    <Target Name="AppConsole:Clean">
+        <MSBuild Projects="AppConsole.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AppConsole:Make">
+        <MSBuild Projects="AppConsole.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="AppFormsVcl">
+        <MSBuild Projects="AppFormsVcl.cbproj"/>
+    </Target>
+    <Target Name="AppFormsVcl:Clean">
+        <MSBuild Projects="AppFormsVcl.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AppFormsVcl:Make">
+        <MSBuild Projects="AppFormsVcl.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="AppConsole;AppFormsVcl"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="AppConsole:Clean;AppFormsVcl:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="AppConsole:Make;AppFormsVcl:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
