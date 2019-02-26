@@ -11,7 +11,7 @@
 #include <string>
 #include <memory>
 #include <ctime>
-#include <math.h>
+#include <cmath>
 #include <string>
 #include <vector>
 #include <initializer_list>
