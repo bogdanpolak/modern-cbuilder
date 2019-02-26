@@ -19,7 +19,7 @@
 # (*.cbproj) C++Builder Project file
 
 *.dproj
-*.cbproj
+// *.cbproj -- Allow C++Builder project file tracking
 
 # ########## Resource file
 # (*.rc, *.res) Compiled and uncompiled resource files

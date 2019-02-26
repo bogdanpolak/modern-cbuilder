@@ -12,13 +12,14 @@ typedef char _TCHAR;
 #include "DemoClassicVsModern.h"
 #include "DemoStdTasks.h"
 #include "DemoStdMutex.h"
+#include "DemoCpp17Auto.h"
 
 int _tmain(int argc, _TCHAR* argv[]) {
 
 	// demo_classic_vs_modern_cpp_code();
 	// demo_std_thread_and_mutex();
-	demo_cppreference_mutex_thread();
-
+	// demo_cppreference_mutex_thread();
+    demo_cpp17_auto();
 
 	std::system("pause");
 	return 0;
