@@ -7,6 +7,9 @@ rmdir /S /Q Win32
 del /S /Q Debug\*.*
 rmdir /S /Q Debug
 
+del /S /Q __astcache
+rmdir /S /Q __astcache
+
 del desktop.ini
 del *.identcache
 del *.cbproj.local
