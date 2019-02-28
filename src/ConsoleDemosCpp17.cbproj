@@ -153,6 +153,10 @@
             <DependentOn>DemoCpp17Misc.h</DependentOn>
             <BuildOrder>6</BuildOrder>
         </CppCompile>
+        <CppCompile Include="DemoMoveConstructor.cpp">
+            <DependentOn>DemoMoveConstructor.h</DependentOn>
+            <BuildOrder>9</BuildOrder>
+        </CppCompile>
         <CppCompile Include="DemoSmartPointers.cpp">
             <DependentOn>DemoSmartPointers.h</DependentOn>
             <BuildOrder>8</BuildOrder>

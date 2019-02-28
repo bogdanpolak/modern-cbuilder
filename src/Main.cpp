@@ -11,6 +11,7 @@ typedef char _TCHAR;
 #include <iostream>
 
 #include "DemoSmartPointers.h"
+#include "DemoMoveConstructor.h"
 #include "DemoCpp17Auto.h"
 #include "DemoCpp17Misc.h"
 
@@ -21,8 +22,10 @@ typedef char _TCHAR;
 #include "DemoAtomics.h"
 
 void block_cpp17_basics() {
-	std::cout << "[demo] Smart pointers \n";
+	std::cout << "[demo] C++11 Smart Pointers \n";
 	demo_SmartPointers();
+	std::cout << "[demo] C++11 Move Constructor \n";
+	demo_move_constructor ();
 	std::cout << "[demo] C++17 auto type declaration... \n";
 	demo_cpp17_auto();
 	std::cout << "[demo] C++17 auto features... \n";
