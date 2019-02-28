@@ -11,6 +11,46 @@
 #include <string>
 #include <chrono>
 
+
+#include <ostream>
+#include <iomanip>
+#include <utility>
+ 
+class Foo {
+public:
+    std::string s;
+    int k;
+    Foo(int n = 0) : s{"test"}, k{n} { 
+        std::cout << "default constructor\n"; 
+    }
+    Foo(const Foo& foo) : s{foo.s}, k{foo.k+1} { 
+        std::cout << "copy constructor\n"; 
+    }
+    Foo(Foo&& foo) : s(std::move(foo.s)), k(std::exchange(foo.k, 0)) { 
+        std::cout << "move constructor\n"; 
+    }
+    ~Foo() { 
+        std::cout << "destructor\n"; 
+    }
+};
+std::ostream& operator<<(std::ostream &strm, const Foo &foo) {
+     return strm << "Foo(s:\"" << foo.s << "\", k:" << foo.k << ")";
+}
+
+Foo f(Foo a) {
+    return a;
+}
+ 
+void run_demo_two () {
+    Foo foo2 = f( Foo(10) ); 
+    std::cout << "  [1] foo2 = " << foo2 << '\n';
+    Foo foo3 = std::move(foo2); 
+    std::cout << "  [1] foo2 = " << foo2 << '\n';
+    std::cout << "  [1] foo3 = " << foo3 << '\n';
+}
+
+
+
 class BigVector {
 	int size_;
 	double* arr_;
@@ -73,7 +113,11 @@ void demo_move_constructor () {
 	 */
 	// ----
 	// check: https://www.cprogramming.com/c++11/rvalue-references-and-move-semantics-in-c++11.html
-
+	
+	// ------------------------------------------
+	run_demo_two ();
+	// ------------------------------------------
+	
 	std::cout << "Passing object using copy constructor.\n";
 	auto begin = std::chrono::steady_clock::now();
 	BigVector big1 = createVector();
