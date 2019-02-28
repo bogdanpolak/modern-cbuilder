@@ -137,6 +137,10 @@
             <BuildOrder>0</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
+        <CppCompile Include="DemoAtomics.cpp">
+            <DependentOn>DemoAtomics.h</DependentOn>
+            <BuildOrder>7</BuildOrder>
+        </CppCompile>
         <CppCompile Include="DemoClassicVsModern.cpp">
             <DependentOn>DemoClassicVsModern.h</DependentOn>
             <BuildOrder>2</BuildOrder>
@@ -148,6 +152,10 @@
         <CppCompile Include="DemoCpp17Misc.cpp">
             <DependentOn>DemoCpp17Misc.h</DependentOn>
             <BuildOrder>6</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="DemoSmartPointers.cpp">
+            <DependentOn>DemoSmartPointers.h</DependentOn>
+            <BuildOrder>8</BuildOrder>
         </CppCompile>
         <CppCompile Include="DemoStdMutex.cpp">
             <DependentOn>DemoStdMutex.h</DependentOn>
