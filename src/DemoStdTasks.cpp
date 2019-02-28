@@ -9,8 +9,8 @@
 #include <iostream>
 #include <mutex>
 #include <thread>
-#include <System.SysUtils.hpp>
-// #include "unistd.h"
+#include <chrono>
+#include <thread>
 
 std::mutex M;
 std::mutex N;
@@ -39,20 +39,18 @@ void highpriounlock(){
 }
 
 void hpt(const char* s){
-	using namespace std;
 	//cout << "hpt trying to get lock here" << endl;
 	highpriolock();
-	cout << s << endl;
-	Sleep(2);
+	std::cout << s << std::endl;
+	std::this_thread::sleep_for(std::chrono::milliseconds(2));
 	highpriounlock();
 }
 
 void lpt(const char* s){
-	using namespace std;
 	//cout << "lpt trying to get lock here" << endl;
 	lowpriolock();
-	cout << s << endl;
-	Sleep(2);
+	std::cout << s << std::endl;
+	std::this_thread::sleep_for(std::chrono::milliseconds(2));
 	lowpriounlock();
 }
 
