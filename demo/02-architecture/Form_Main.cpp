@@ -4,6 +4,7 @@
 #pragma hdrstop
 
 #include "Form_Main.h"
+#include "Frame_ProductsBrws.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -14,3 +15,27 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TForm1::FormCreate(TObject *Sender)
+{
+	PageControlFactory = new TPageControlFactory(this);
+    PageControlFactory->PageControl = PageControl1;
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::tmrReadyTimer(TObject *Sender)
+{
+    tmrReady->Enabled = false;
+	// x
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::actProductsCatalogExecute(TObject *Sender)
+{
+	// TComponentClass
+	PageControlFactory->AddNewFrame("Katalog produktów", new TFrameProductsBrws(this) );
+
+}
+//---------------------------------------------------------------------------
+
