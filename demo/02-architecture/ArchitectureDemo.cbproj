@@ -147,6 +147,10 @@
             <DependentOn>Frame_ProductsBrws.h</DependentOn>
             <BuildOrder>5</BuildOrder>
         </CppCompile>
+        <CppCompile Include="Plus.Vcl\Plus_Vcl_CloseSheetAction.cpp">
+            <DependentOn>Plus.Vcl\Plus_Vcl_CloseSheetAction.h</DependentOn>
+            <BuildOrder>6</BuildOrder>
+        </CppCompile>
         <CppCompile Include="Plus.Vcl\Plus_Vcl_PageControlFactory.cpp">
             <DependentOn>Plus.Vcl\Plus_Vcl_PageControlFactory.h</DependentOn>
             <BuildOrder>4</BuildOrder>

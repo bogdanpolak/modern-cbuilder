@@ -13,6 +13,7 @@
 #include "Data_Connection.h"
 #include <System.Actions.hpp>
 #include <Vcl.ActnList.hpp>
+#include "Plus_Vcl_CloseSheetAction.h"
 //---------------------------------------------------------------------------
 class TFrameProductsBrws : public TFrame
 {
@@ -23,10 +24,10 @@ __published:	// IDE-managed Components
 	TButton *Button1;
 	TButton *Button2;
 	TActionList *ActionList1;
-	TAction *actClose;
 	void __fastcall actCloseExecute(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
+    TCloseSheetAction* CloseAction;
 	__fastcall TFrameProductsBrws(TComponent* Owner);
 };
 //---------------------------------------------------------------------------

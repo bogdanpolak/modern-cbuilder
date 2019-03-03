@@ -36,7 +36,8 @@ void __fastcall TForm1::actProductsCatalogExecute(TObject *Sender)
 	TFrameProductsBrws* frm = dynamic_cast<TFrameProductsBrws*>(
 		PageControlFactory->AddNewFrame( L"Katalog produktów",
 		new TFrameProductsBrws(this) ));
-	PageControlFactory->RegisterFrameCloseAction (frm->actClose);
+	frm->CloseAction->SetSheetData(PageControl1->ActivePage, frm);
 }
 //---------------------------------------------------------------------------
+
 

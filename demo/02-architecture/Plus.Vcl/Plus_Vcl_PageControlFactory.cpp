@@ -38,10 +38,12 @@ TFrame* TPageControlFactory::AddNewFrame (const String& Caption, TFrame* aFrame)
 
 void TPageControlFactory::RegisterFrameCloseAction (TAction* aCloseAction)
 {
+	/*
 	FCloseActionExecute = aCloseAction->OnExecute
 	aCloseAction->OnExecute
 	if (Assign()) {
 
 	}
+    */
 }
 

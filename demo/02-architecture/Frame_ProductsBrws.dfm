@@ -45,12 +45,10 @@ object FrameProductsBrws: TFrameProductsBrws
       Top = 20
       Width = 75
       Height = 27
-      Action = actClose
       Align = alRight
+      Caption = 'Zamknij'
       TabOrder = 1
-      ExplicitLeft = 224
-      ExplicitTop = 29
-      ExplicitHeight = 25
+      OnClick = actCloseExecute
     end
   end
   object DataSource1: TDataSource
@@ -61,10 +59,5 @@ object FrameProductsBrws: TFrameProductsBrws
   object ActionList1: TActionList
     Left = 40
     Top = 56
-    object actClose: TAction
-      Category = 'Commands'
-      Caption = 'Zamknij'
-      OnExecute = actCloseExecute
-    end
   end
 end
