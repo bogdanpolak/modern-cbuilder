@@ -33,9 +33,10 @@ void __fastcall TForm1::tmrReadyTimer(TObject *Sender)
 
 void __fastcall TForm1::actProductsCatalogExecute(TObject *Sender)
 {
-	// TComponentClass
-	PageControlFactory->AddNewFrame("Katalog produktów", new TFrameProductsBrws(this) );
-
+	TFrameProductsBrws* frm = dynamic_cast<TFrameProductsBrws*>(
+		PageControlFactory->AddNewFrame( L"Katalog produktów",
+		new TFrameProductsBrws(this) ));
+	PageControlFactory->RegisterFrameCloseAction (frm->actClose);
 }
 //---------------------------------------------------------------------------
 

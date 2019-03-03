@@ -17,3 +17,9 @@ __fastcall TFrameProductsBrws::TFrameProductsBrws(TComponent* Owner)
     DataSource1->DataSet->Open();
 }
 //---------------------------------------------------------------------------
+void __fastcall TFrameProductsBrws::actCloseExecute(TObject *Sender)
+{
+    // x
+}
+//---------------------------------------------------------------------------
+

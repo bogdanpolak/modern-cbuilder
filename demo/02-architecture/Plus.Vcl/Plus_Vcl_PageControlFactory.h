@@ -7,6 +7,7 @@
 #include <System.Classes.hpp>
 #include <Vcl.ComCtrls.hpp>
 #include <Vcl.Forms.hpp>
+#include <Vcl.ActnList.hpp>
 
 //---------------------------------------------------------------------------
 class TPageControlFactory : public TComponent {
@@ -16,6 +17,7 @@ private:
 public:
 	 __fastcall TPageControlFactory(TComponent* Owner);
 	TFrame* AddNewFrame (const String& Caption, TFrame* aFrame);
+	void RegisterFrameCloseAction (TAction* aCloseAction);
 	__property TPageControl* PageControl = {read = FPageControl, write = SetPageControl};
 };
 //---------------------------------------------------------------------------
