@@ -11,6 +11,10 @@
 void __fastcall TCloseSheetAction::Notification(TComponent* AComponent,
 TOperation Operation) {
 	TBasicAction::Notification(AComponent, Operation);
+	if (Operation == opRemove && AComponent == FSheet)
+		FSheet = 0;
+	if (Operation == opRemove && AComponent == FFrame)
+		FFrame = 0;
 };
 
 void TCloseSheetAction::SetSheetData (TTabSheet* aSheet, TFrame* aFrame) {
@@ -19,7 +23,7 @@ void TCloseSheetAction::SetSheetData (TTabSheet* aSheet, TFrame* aFrame) {
 };
 
 bool __fastcall TCloseSheetAction::HandlesTarget(TObject* Target) {
-	return true;
+	return (FSheet && FFrame);
 };
 
 void __fastcall TCloseSheetAction::ExecuteTarget(TObject* Target) {
@@ -27,7 +31,7 @@ void __fastcall TCloseSheetAction::ExecuteTarget(TObject* Target) {
 	if (FBeforeClose) {
 		FBeforeClose(Target, CanClose);
 	}
-	FFrame->Close();
+	FFrame->Visible = false;
 	if (CanClose && FAfterClose ) {
 		FAfterClose (Target);
 	}
@@ -35,49 +39,6 @@ void __fastcall TCloseSheetAction::ExecuteTarget(TObject* Target) {
 };
 
 void __fastcall TCloseSheetAction::UpdateTarget(TObject* Target) {
+	Enabled =  (FSheet && FFrame);
 };
 
-/*
-procedure TDataSetFirstAction.ExecuteTarget(Target: TObject);
-begin
-  DataSource.DataSet.First;
-end;
-
-procedure TDataSetFirstAction.UpdateTarget(Target: TObject);
-begin
-  Enabled := (DataSource <> nil) and DataSource.DataSet.Active and
-	not DataSource.DataSet.Bof;
-end;
-
-// TDataSource specyfic code
-
-function TDataSetFirstAction.HandlesTarget(Target: TObject): Boolean;
-var
-  isAccepted: Boolean;
-begin
-  isAccepted := (DataSource <> nil) and (Target = DataSource) and
-    (DataSource.DataSet <> nil);
-  if isAccepted then
-    FCountHandlesTarget := FCountHandlesTarget + 1;
-  Result := isAccepted;
-end;
-
-procedure TDataSetFirstAction.Notification(AComponent: TComponent;
-  Operation: TOperation);
-begin
-  inherited;
-  if (Operation = opRemove) and (AComponent = DataSource) then
-    DataSource := nil;
-end;
-
-procedure TDataSetFirstAction.SetDataSource(DataSource: TDataSource);
-begin
-  if DataSource <> FDataSource then
-  begin
-    FDataSource := DataSource;
-    // TODO: Check this. Not sure why it's required
-    if DataSource <> nil then
-      DataSource.FreeNotification(Self);
-  end;
-end;
-*/

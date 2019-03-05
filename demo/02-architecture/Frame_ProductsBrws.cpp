@@ -16,7 +16,7 @@ __fastcall TFrameProductsBrws::TFrameProductsBrws(TComponent* Owner)
 	DBGrid1->Align = alClient;
 	DataSource1->DataSet->Open();
 	CloseAction = new TCloseSheetAction(this);
-    CloseAction->Caption := "Zamknij";
+    CloseAction->Caption = "Zamknij";
 	Button2->Action = CloseAction;
 }
 //---------------------------------------------------------------------------

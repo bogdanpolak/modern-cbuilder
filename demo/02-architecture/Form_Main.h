@@ -19,16 +19,15 @@ __published:	// IDE-managed Components
 	TGroupBox *GroupBox1;
 	TButton *Button1;
 	TActionList *ActionList1;
-	TAction *actProductsCatalog;
-	TAction *Action2;
-	TAction *Action3;
-	TAction *Action4;
+	TAction *actProductCatalog;
+	TAction *actLogin;
 	TPageControl *PageControl1;
 	TSplitter *Splitter1;
 	TTimer *tmrReady;
-	void __fastcall FormCreate(TObject *Sender);
+	TAction *actLogout;
+	TAction *actApplicationAbout;
 	void __fastcall tmrReadyTimer(TObject *Sender);
-	void __fastcall actProductsCatalogExecute(TObject *Sender);
+	void __fastcall actProductCatalogExecute(TObject *Sender);
 private:
 	TPageControlFactory* PageControlFactory;
 public:		// User declarations

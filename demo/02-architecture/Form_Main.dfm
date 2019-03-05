@@ -11,7 +11,6 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Splitter1: TSplitter
@@ -30,13 +29,15 @@ object Form1: TForm1
     Align = alLeft
     Caption = 'GroupBox1'
     TabOrder = 0
+    ExplicitLeft = 0
+    ExplicitTop = -2
     object Button1: TButton
       AlignWithMargins = True
       Left = 5
       Top = 18
       Width = 175
       Height = 25
-      Action = actProductsCatalog
+      Action = actProductCatalog
       Align = alTop
       TabOrder = 0
     end
@@ -54,22 +55,22 @@ object Form1: TForm1
   object ActionList1: TActionList
     Left = 88
     Top = 192
-    object actProductsCatalog: TAction
+    object actProductCatalog: TAction
       Category = 'Commands'
-      Caption = 'Products'
-      OnExecute = actProductsCatalogExecute
+      Caption = 'Katalog Produkt'#243'w'
+      OnExecute = actProductCatalogExecute
     end
-    object Action2: TAction
+    object actLogin: TAction
       Category = 'Commands'
-      Caption = 'Action2'
+      Caption = 'Zaloguj'
     end
-    object Action3: TAction
+    object actLogout: TAction
       Category = 'Commands'
-      Caption = 'Action3'
+      Caption = 'Wyloguj'
     end
-    object Action4: TAction
+    object actApplicationAbout: TAction
       Category = 'Commands'
-      Caption = 'Action4'
+      Caption = 'O Programie'
     end
   end
   object tmrReady: TTimer

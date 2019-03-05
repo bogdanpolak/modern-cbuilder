@@ -19,6 +19,9 @@ private:
 protected:
 	void __fastcall Notification(TComponent * AComponent, TOperation Operation);
 public:
+	TCloseSheetAction __fastcall (TComponent* Owner) : TAction(Owner),
+		FAfterClose(0), FBeforeClose(0), FSheet(0), FFrame (0)
+		{};
 	void SetSheetData (TTabSheet* aSheet, TFrame* aFrame);
 	virtual bool __fastcall HandlesTarget(TObject* Target);
 	virtual void __fastcall ExecuteTarget(TObject* Target);
