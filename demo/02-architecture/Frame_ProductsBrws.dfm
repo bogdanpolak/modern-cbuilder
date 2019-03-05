@@ -48,11 +48,9 @@ object FrameProductsBrws: TFrameProductsBrws
       Align = alRight
       Caption = 'Zamknij'
       TabOrder = 1
-      OnClick = actCloseExecute
     end
   end
   object DataSource1: TDataSource
-    DataSet = DataModule2.dsProductsBrws
     Left = 40
     Top = 120
   end

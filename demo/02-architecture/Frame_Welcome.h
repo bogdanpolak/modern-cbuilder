@@ -1,35 +1,31 @@
 //---------------------------------------------------------------------------
 
-#ifndef Frame_ProductsBrwsH
-#define Frame_ProductsBrwsH
+#ifndef Frame_WelcomeH
+#define Frame_WelcomeH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
-#include <Data.DB.hpp>
-#include <Vcl.DBGrids.hpp>
-#include <Vcl.Grids.hpp>
-#include <System.Actions.hpp>
-#include <Vcl.ActnList.hpp>
-#include "Data_Connection.h"
-#include "Plus_Vcl_CloseSheetAction.h"
+#include <Vcl.ExtCtrls.hpp>
 //---------------------------------------------------------------------------
-class TFrameProductsBrws : public TFrame
+class TFrameWelcome : public TFrame
 {
 __published:	// IDE-managed Components
-	TDBGrid *DBGrid1;
-	TDataSource *DataSource1;
-	TGroupBox *GroupBox1;
-	TButton *Button1;
-	TButton *Button2;
-	TActionList *ActionList1;
+	TPanel *Panel1;
+	TGroupBox *grbxLogin;
+	TLabel *lblLogin;
+	TEdit *edtLogin;
+	TLabel *lblPassword;
+	TEdit *edtPassword;
+	TButton *btnLogin;
+	TPanel *pnLogin;
 private:	// User declarations
 public:		// User declarations
-    TCloseSheetAction* CloseAction;
-	__fastcall TFrameProductsBrws(TComponent* Owner);
+	__fastcall TFrameWelcome(TComponent* Owner);
+	void UpdateLoginStatus (bool isLogIn);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TFrameProductsBrws *FrameProductsBrws;
+extern PACKAGE TFrameWelcome *FrameWelcome;
 //---------------------------------------------------------------------------
 #endif
