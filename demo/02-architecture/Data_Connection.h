@@ -25,16 +25,18 @@
 #include <FireDAC.UI.Intf.hpp>
 #include <FireDAC.VCLUI.Wait.hpp>
 //---------------------------------------------------------------------------
-class TDataModule2 : public TDataModule
+class TDataModule1 : public TDataModule
 {
 __published:	// IDE-managed Components
 	TFDConnection *FDConnection1;
 	TFDQuery *dsProductsBrws;
 private:	// User declarations
+	void LogConnectionInfo (const int level, const String& msg);
 public:		// User declarations
-	__fastcall TDataModule2(TComponent* Owner);
+	__fastcall TDataModule1(TComponent* Owner);
+	bool doDatabaseLogin (const String& UserName, const String& HashedPassword);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TDataModule2 *DataModule2;
+extern PACKAGE TDataModule1 *DataModule1;
 //---------------------------------------------------------------------------
 #endif

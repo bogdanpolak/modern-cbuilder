@@ -23,6 +23,7 @@ __published:	// IDE-managed Components
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFrameWelcome(TComponent* Owner);
+	void UpdateLoginStatus (bool isLogIn)
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFrameWelcome *FrameWelcome;

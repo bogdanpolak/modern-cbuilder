@@ -5,7 +5,6 @@
 
 #include "Form_Main.h"
 #include "Frame_ProductsBrws.h"
-#include "Frame_Welcome.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -14,6 +13,7 @@ TForm1 *Form1;
 __fastcall TForm1::TForm1(TComponent* Owner)
 	: TForm(Owner)
 {
+    FrameWelcome = 0;
 	PageControlFactory = new TPageControlFactory(this);
 	PageControlFactory->PageControl = PageControl1;
 }
@@ -22,9 +22,11 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 void __fastcall TForm1::tmrReadyTimer(TObject *Sender)
 {
 	tmrReady->Enabled = false;
-    grbxCommands->Visible = false;
-	PageControlFactory->AddNewFrame( L"Dzieñ dobry",
+	grbxCommands->Visible = false;
+	TFrame* fr = PageControlFactory->AddNewFrame( L"Dzieñ dobry",
 		new TFrameWelcome(this) );
+	FrameWelcome = dynamic_cast<TFrameWelcome*>(fr);
+	FrameWelcome->btnLogin->Action = actLogin;
 }
 //---------------------------------------------------------------------------
 
@@ -37,7 +39,12 @@ void __fastcall TForm1::actProductCatalogExecute(TObject *Sender)
 
 void __fastcall TForm1::actLoginExecute(TObject *Sender)
 {
-	// TODO: Implementation needed
+	bool isLogIn = DataModule1->doDatabaseLogin (FrameWelcome->edtLogin->Text,
+		FrameWelcome->edtPassword->Text);
+	if (isLogIn) {
+		grbxCommands->Visible = true;
+        FrameWelcome->UpdateLoginStatus(isLogIn);
+	}
 }
 //---------------------------------------------------------------------------
 

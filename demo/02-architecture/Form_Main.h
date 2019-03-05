@@ -11,7 +11,9 @@
 #include <Vcl.ActnList.hpp>
 #include <Vcl.ComCtrls.hpp>
 #include <Vcl.ExtCtrls.hpp>
+//---------------------------------------------------------------------------
 #include "Plus_Vcl_PageControlFactory.h"
+#include "Frame_Welcome.h"
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -35,6 +37,7 @@ __published:	// IDE-managed Components
 	void __fastcall actLogoutExecute(TObject *Sender);
 	void __fastcall actApplicationAboutExecute(TObject *Sender);
 private:
+    TFrameWelcome* FrameWelcome;
 	TPageControlFactory* PageControlFactory;
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);

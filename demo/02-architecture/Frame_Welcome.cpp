@@ -14,3 +14,9 @@ __fastcall TFrameWelcome::TFrameWelcome(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
+
+void TFrameWelcome::UpdateLoginStatus (bool isLogIn) {
+    grbxLogin->Visible = !isLogIn;
+}
+//---------------------------------------------------------------------------
+

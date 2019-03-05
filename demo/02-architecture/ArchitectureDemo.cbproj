@@ -128,7 +128,7 @@
             <PCH>true</PCH>
         </PCHCompile>
         <CppCompile Include="Data_Connection.cpp">
-            <Form>DataModule2</Form>
+            <Form>DataModule1</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
             <DependentOn>Data_Connection.h</DependentOn>

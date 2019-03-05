@@ -65,9 +65,10 @@ object Form1: TForm1
       ExplicitWidth = 75
     end
     object Button3: TButton
-      Left = 2
-      Top = 91
-      Width = 181
+      AlignWithMargins = True
+      Left = 5
+      Top = 94
+      Width = 175
       Height = 25
       Action = actLogout
       Align = alTop
