@@ -5,7 +5,6 @@ object DataModule2: TDataModule2
   object FDConnection1: TFDConnection
     Params.Strings = (
       'ConnectionDef=SQLite_Demo')
-    Connected = True
     LoginPrompt = False
     Left = 72
     Top = 32
