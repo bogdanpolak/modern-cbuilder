@@ -10,9 +10,9 @@
 #include <Data.DB.hpp>
 #include <Vcl.DBGrids.hpp>
 #include <Vcl.Grids.hpp>
-#include "Data_Connection.h"
 #include <System.Actions.hpp>
 #include <Vcl.ActnList.hpp>
+#include "Data_Connection.h"
 #include "Plus_Vcl_CloseSheetAction.h"
 //---------------------------------------------------------------------------
 class TFrameProductsBrws : public TFrame
@@ -24,7 +24,6 @@ __published:	// IDE-managed Components
 	TButton *Button1;
 	TButton *Button2;
 	TActionList *ActionList1;
-	void __fastcall actCloseExecute(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
     TCloseSheetAction* CloseAction;

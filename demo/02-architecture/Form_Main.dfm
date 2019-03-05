@@ -35,10 +35,11 @@ object Form1: TForm1
     object Bevel1: TBevel
       AlignWithMargins = True
       Left = 5
-      Top = 54
+      Top = 85
       Width = 175
       Height = 3
       Align = alTop
+      ExplicitTop = 54
     end
     object Button1: TButton
       AlignWithMargins = True
@@ -54,15 +55,13 @@ object Form1: TForm1
     object Button2: TButton
       AlignWithMargins = True
       Left = 5
-      Top = 63
+      Top = 54
       Width = 175
       Height = 25
       Action = actApplicationAbout
       Align = alTop
       TabOrder = 1
-      ExplicitLeft = 56
-      ExplicitTop = 184
-      ExplicitWidth = 75
+      ExplicitLeft = 4
     end
     object Button3: TButton
       AlignWithMargins = True

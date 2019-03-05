@@ -14,15 +14,13 @@ __fastcall TFrameProductsBrws::TFrameProductsBrws(TComponent* Owner)
 	: TFrame(Owner)
 {
 	DBGrid1->Align = alClient;
+    DataSource1->DataSet = DataModule1->dsProductsBrws;
 	DataSource1->DataSet->Open();
+	// ----------------------------------------------------------
+    // CloseAction
 	CloseAction = new TCloseSheetAction(this);
-    CloseAction->Caption = "Zamknij";
+	CloseAction->Caption = "Zamknij";
 	Button2->Action = CloseAction;
-}
-//---------------------------------------------------------------------------
-void __fastcall TFrameProductsBrws::actCloseExecute(TObject *Sender)
-{
-    // x
 }
 //---------------------------------------------------------------------------
 
