@@ -9,7 +9,7 @@
 #include <Vcl.Forms.hpp>
 #include <Vcl.ExtCtrls.hpp>
 //---------------------------------------------------------------------------
-class TFrame1 : public TFrame
+class TFrameWelcome : public TFrame
 {
 __published:	// IDE-managed Components
 	TPanel *Panel1;
@@ -22,9 +22,9 @@ __published:	// IDE-managed Components
 	TPanel *pnLogin;
 private:	// User declarations
 public:		// User declarations
-	__fastcall TFrame1(TComponent* Owner);
+	__fastcall TFrameWelcome(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TFrame1 *Frame1;
+extern PACKAGE TFrameWelcome *FrameWelcome;
 //---------------------------------------------------------------------------
 #endif

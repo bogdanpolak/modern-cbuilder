@@ -148,7 +148,7 @@
             <BuildOrder>5</BuildOrder>
         </CppCompile>
         <CppCompile Include="Frame_Welcome.cpp">
-            <Form>Frame1</Form>
+            <Form>FrameWelcome</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
             <DependentOn>Frame_Welcome.h</DependentOn>

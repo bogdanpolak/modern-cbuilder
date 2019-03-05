@@ -1,4 +1,4 @@
-object Frame1: TFrame1
+object FrameWelcome: TFrameWelcome
   Left = 0
   Top = 0
   Width = 483
@@ -18,6 +18,14 @@ object Frame1: TFrame1
     BevelOuter = bvNone
     BorderWidth = 1
     Caption = 'Application logo placeholder'
+    Color = clMoneyGreen
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentBackground = False
+    ParentFont = False
     TabOrder = 0
   end
   object grbxLogin: TGroupBox

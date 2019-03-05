@@ -7,9 +7,9 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
-TFrame1 *Frame1;
+TFrameWelcome *FrameWelcome;
 //---------------------------------------------------------------------------
-__fastcall TFrame1::TFrame1(TComponent* Owner)
+__fastcall TFrameWelcome::TFrameWelcome(TComponent* Owner)
 	: TFrame(Owner)
 {
 }
