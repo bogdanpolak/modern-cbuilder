@@ -147,6 +147,13 @@
             <DependentOn>Frame_ProductsBrws.h</DependentOn>
             <BuildOrder>5</BuildOrder>
         </CppCompile>
+        <CppCompile Include="Frame_Welcome.cpp">
+            <Form>Frame1</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+            <DependentOn>Frame_Welcome.h</DependentOn>
+            <BuildOrder>7</BuildOrder>
+        </CppCompile>
         <CppCompile Include="Plus.Vcl\Plus_Vcl_CloseSheetAction.cpp">
             <DependentOn>Plus.Vcl\Plus_Vcl_CloseSheetAction.h</DependentOn>
             <BuildOrder>6</BuildOrder>
@@ -155,9 +162,10 @@
             <DependentOn>Plus.Vcl\Plus_Vcl_PageControlFactory.h</DependentOn>
             <BuildOrder>4</BuildOrder>
         </CppCompile>
-        <FormResources Include="Form_Main.dfm"/>
         <FormResources Include="Frame_ProductsBrws.dfm"/>
+        <FormResources Include="Form_Main.dfm"/>
         <FormResources Include="Data_Connection.dfm"/>
+        <FormResources Include="Frame_Welcome.dfm"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
