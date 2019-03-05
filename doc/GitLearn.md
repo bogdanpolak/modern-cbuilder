@@ -24,7 +24,19 @@ Więcej informacji o poleceniach git wraz z dokładniejszym wyjaśnieniem w arty
 
 # Klienci GUI dla Git-a
 
-Alternatywą dla standardowego klienta z linii poleceń są aplikacje graficzne. Do nauki Git-a zazwyczaj zalecane jest korzystanie z linii poleceń, aby dokładnie zrozumieć metodę działania. Z kolej narzędzia graficzne pozwalają le
+Alternatywą dla standardowego klienta Git uruchamianego z linii poleceń są aplikacje graficzne. Do nauki Git-a zazwyczaj zalecane jest korzystanie z linii poleceń, aby dokładnie zrozumieć mechanizmy działania tego systemu. Jednak narzędzia graficzne pozwalają wiele działań wykonać w znacznie wygodniejszy sposób, choć z drugiej strony czasami wprowadzają spory bałagan w historii rewizji.
+
+Prawie wszystkich klientów można używać zamiennie, a nawet równocześnie na tym samym repozytorium. Pewne działania szybciej można wykonać z linii poleceń, inne z graficznego klienta A, a jeszcze inne z graficznego klienta B
+
+Lista klientów graficznych
+
+* Artykuł: What are the best Git clients for Windows? https://www.slant.co/topics/2089/~best-git-clients-for-windows
+* Oficjalna lista na stronach Git-a (lekko nieaktualna) https://git-scm.com/download/gui/windows
+
+Polecam sprawdzenie:
+
+* GitKraken (wymaga rejestracji)
+* Fork (aktualnie w pełni darmowy)
 
 
 # Repozytorium Git-a
