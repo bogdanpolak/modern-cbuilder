@@ -35,4 +35,6 @@
 	* Głębsze poznanie możliwości języka C++
 	* C++ to nie jest Delphi zapisane w nowacji C++
 	* Wykorzystanie nowych elementów języka
-	* Prezentacja na Google Doc `Modern CBuilder` [zobacz](https://docs.google.com/presentation/d/18e-Kh9cbru_3Ab5fTEBM17qkClN4t0h7bpKp5fxeMxY/edit?usp=sharing)
+	* Prezentacja na Google Doc `Modern CBuilder` 
+	[![Slajdy do Modern C++Builder](./resources/modern-cbuilder.jpg)](https://docs.google.com/presentation/d/18e-Kh9cbru_3Ab5fTEBM17qkClN4t0h7bpKp5fxeMxY/edit?usp=sharing)
+	
