@@ -7,7 +7,6 @@ Tematy opisane w ramach artykułu:
 - [Złączanie gałęzi](#złączanie-gałęzi)
 - [Gałęzie zdalne](#gałęzie-zdalne)
 - [Porządkowanie gałęzi lokalnych](#porządkowanie-gałęzi-lokalnych) 
-- [Porządkowanie gałęzi zdalnych](#porządkowanie-gałęzi-zdalnych) **[[wersja robocza]]**
 
 ## Zarządzanie gałęziami
 
@@ -193,44 +192,4 @@ git branch --merged
 Lista gałęzi **niescalonych** z HEAD (j.w.)
 ```
 git branch --no-merged
-```
-
-## Porządkowanie gałęzi zdalnych
-
-Aktualizacja zapamiętanej lokalnie listy zdalnych gałęzi w śledzonych zdalnych repozytoriach (```prune cache```)
-
-```
-git fetch -p origin
-git fetch --prune origin
-```
-
-Angielski opis z dokumentacji ```fetch --prune```
-
-> ```Before fetching, remove any remote-tracking references that no longer exist on the remote. Tags are not subject to pruning if they are fetched only because of the default tag auto-following or due to a --tags option. However, if tags are fetched due to an explicit refspec (either on the command line or in the remote configuration, for example if the remote was cloned with the --mirror option), then they are also subject to pruning```
-
-Tworzenie gałęzi lokalnej na bazie gałęzi zdalnej
-
-```
-git checkout --track origin/poprwka61
-```
-
-
-Lista gałęzi lokalnych i zdalnych
-```
-git branch --all
-git branch -a
-git branch --remote
-git branch -r
-```
-
-Kasowanie gałęzi zdalnej
-
-```
-git push origin --delete pg-branches-v1
-```
-
-Wersja skrócona:
-
-```
-git push origin :pg-branches-v1
 ```

@@ -21,9 +21,11 @@ Komunikacja z repozytorium Git oraz zarządzanie nim wykonuje się z linii polec
 
 Więcej informacji o poleceniach git wraz z dokładniejszym wyjaśnieniem w artykule: [Git: Wizualna ściąga](https://marklodato.github.io/visual-git-guide/index-pl.html) (tłumaczenie angielskiego artykułu: "A Visual Git Reference")
 
+
 # Klienci GUI dla Git-a
 
 Alternatywą dla standardowego klienta z linii poleceń są aplikacje graficzne. Do nauki Git-a zazwyczaj zalecane jest korzystanie z linii poleceń, aby dokładnie zrozumieć metodę działania. Z kolej narzędzia graficzne pozwalają le
+
 
 # Repozytorium Git-a
 
@@ -37,6 +39,7 @@ Zbiór migawek w danej rewizji zawiera:
 * wskaźniki do wcześniejszej migawki plików, które nie uległy zmianie
 
 W efekcie system Git ma możliwość natychmiastowego dostępu do dowolnej wersji repozytorium. O wiele prostsze staje się również rozgałęzianie i scalanie różnych wersji plików. Git można traktować jako bardzo wydajny systemem plików z możliwością optymalnego zapamiętania ich wcześniejszych wersji. Systemy wersjonowania kodu starszej generacji (takie jak Subversion i CVS) mają o wiele gorszą wydajność oraz są dużo trudniejsze i bardziej kłopotliwe w zarządzaniu.
+
 
 # Struktura rewizji
 
@@ -57,10 +60,25 @@ Poza połączaniami rewizji strukturę budują również wskaźniki Git-a. Jest 
 * **etykieta (tag)** - nazwany wskaźnik rewizji, w odróżnieniu od gałęzi nie przesuwa się w momencie wprowadzenia zmian, czyli stale wskazuje wybraną rewizję. Można ja wykorzystać to wskazania numeru wersji projektu.
 
 
+# Ignorowanie plików
+
+Git sprawdza zawartość pliku `.gitignore`, który jest wykorzystywany w momencie rejestrowania zmian. Pomijane są wszystkie pliki zapisane w `.gitignore` (zapisujemy pełną nazwę pliku lub wzorzec do którego pasuje wiele plików). Ignorować można również katalogi.
+
+**Pliki projektów**
+
+W przypadku projektów RAD Studio poza plikami binarnymi, które łatwo jest wykluczyć trudności powodują pliki projektu (`*.dproj` lub `*.cbproj`) oraz pliki grupy projektów. Są to pliki XML, które są automatycznie zapisywane przez środowisko i programista nie ma kontroli nad ich formatem i zawartością. Niestety środowisko potrafi znacznie zmodyfikować taki plik przy drobnej zmianie. Dlatego warto usuwać ten plik z systemu wersjonowania, z którego korzysta kilku programistów. Jednak nie zawsze jest to możliwe.
+
+Jeśli plik projektu musi być w repozytorium to warto zadbać o to, aby dodawać go tylko, gdy jest to konieczne, a nie przy każdej zmianie. Jednym z rozwiązań jest ręczne przełączanie flagi `Skip-worktree` dla tego pliku. Ustawienie tej flagi spowoduje pomijanie tego pliku, przy kolejnych rejestracjach zmian.
+
+* Ustawienie flagi `Skip-worktree` 
+```
+git update-index --skip-worktree Project1.cbproj
+```
+
+
 # Zdalne repozytorium
 
 Git jest rozproszonym systemem wersjonowania kodu źródłowego, czyli programista zazwyczaj korzysta ze swojej własnej kopii repozytorium głównego. Lokalne repozytorium jest w pełni autonomiczną kopią repozytorium Git-a. Dzięki takiemu rozwiązaniu możliwe jest zatwierdzanie zmian bez połączenia sieciowego (sieć lokalna lub sieć Internet). 
-
 
 
 ![Zdalne repozytorium](./resources/git02-zdalne.png)
@@ -88,33 +106,28 @@ Rejestracja repozytorium:
 $ git remote add xstream https://github.com/andrea-magni/MARS.git
 ```
 
-# RAD Studio i GitHub
 
-![Delphi i GitHub](./resources/git03-delphi-git.png)
+# Praca grupowa z urzyciem gałęzi
 
-Środowisko RAD Studio (Delphi i C++Builder) zawiera integrację z Git-em nazywaną VersionInsight. Rozszerzenie to pozwala na przeglądanie zmian oraz wydawanie kilku najprostszych poleceń git-a bezpośrednio ze środowiska IDE. W praktyce najlepiej sprawdza się w czasie rejestrowania zmian oraz dodawania plików do repozytorium lokalnego (polecenie `git add` i `git commit`).
+Najczęściej stosowanym sposobem pracy z repozytorium Git jest korzystanie w wielu gałęzi. Programiści przyzywaczajeni do starszych systemów wersjonowania takich jak `CVS` lub `Subversion` obawaiją się stosowania wielu gałęzi i zarządzania nimi. W przypadku Git-a jest to podstawowy tryb pracy.
 
-Aby zacząć korzystać z tej integracji w RAD Studio konieczna jest konfiguracji opcji VersionInsight:
+Przez wiele lat korzystania z repozytorium Git ukształtował się ogólnie przyjęty standard używania długo-trwałych i chwilowych gałęzi. Wymienione dalej artykuły omawiają dokładniej ten teamt, ogólnie znany jako `Git Branching Model` lub `Git Branch Strategy`:
 
-![](./resources/opcje-IDE-dla-Gita.png)
+- A successful Git branching model - https://nvie.com/posts/a-successful-git-branching-model/ (Vincent Driessen, 5 stycznia 2010)
+
+- How We Use Git at Microsoft - https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/use-git-microsoft
+
+- Adopt a Git branching strategy by Microsoft - https://docs.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=vsts
+
+- How to adopt a Git branching strategy - https://medium.freecodecamp.org/adopt-a-git-branching-strategy-ac729ff4f838 (Vali Shah - 14 paździenika 2018)
+
+- GitPro - 3.4 Git Branching - Branching Workflows - https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows
+
+- Scalanie gałęzi - odpowiedzi ze `stackoverflow.com` - Pytanie: What is the difference between `git merge` and `git merge --no-ff` -
+https://stackoverflow.com/questions/9069061/what-is-the-difference-between-git-merge-and-git-merge-no-ff
 
 
-## Ignorowanie plików
-
-Git sprawdza zawartość pliku `.gitignore`, który jest wykorzystywany w momencie rejestrowania zmian. Pomijane są wszystkie pliki zapisane w `.gitignore` (zapisujemy pełną nazwę pliku lub wzorzec do którego pasuje wiele plików). Ignorować można również katalogi.
-
-**Pliki projektów**
-
-W przypadku projektów RAD Studio poza plikami binarnymi, które łatwo jest wykluczyć trudności powodują pliki projektu (`*.dproj` lub `*.cbproj`) oraz pliki grupy projektów. Są to pliki XML, które są automatycznie zapisywane przez środowisko i programista nie ma kontroli nad ich formatem i zawartością. Niestety środowisko potrafi znacznie zmodyfikować taki plik przy drobnej zmianie. Dlatego warto usuwać ten plik z systemu wersjonowania, z którego korzysta kilku programistów. Jednak nie zawsze jest to możliwe.
-
-Jeśli plik projektu musi być w repozytorium to warto zadbać o to, aby dodawać go tylko, gdy jest to konieczne, a nie przy każdej zmianie. Jednym z rozwiązań jest ręczne przełączanie flagi `Skip-worktree` dla tego pliku. Ustawienie tej flagi spowoduje pomijanie tego pliku, przy kolejnych rejestracjach zmian.
-
-* Ustawienie flagi `Skip-worktree` 
-```
-git update-index --skip-worktree Project1.cbproj
-```
-
-## Praca grupowa i repozytoria zdalne
+# Praca grupowa ze zdalnymi repozytoriami OpenSource
 
 Typowym schematem pracy w repozytoriach OpenSource jest zgłaszanie zmian, które wprowadzamy najpierw w swoim zdalnym repozytorium projektowym (`origin`). Portale takie GitHub analizują różnice między repozytorium autorskim (źródłowym) a jego klonem (`fork`) i gdy w naszym sklonowanym repozytorium pojawiają się nowe rewizje to możemy w prosty sposób zgłosić żądnie aktualizacji (`pull request`).
 
