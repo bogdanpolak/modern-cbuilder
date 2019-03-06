@@ -42,7 +42,7 @@ void block_parallel_code() {
 	demo_std_thread_and_mutex();
 	std::cout << "[demo] from cppreference std::thread and std::mutex... \n";
 	demo_cppreference_mutex_thread();
-	// std::cout << "[demo] atomics ... \n";
+	std::cout << "[demo] atomics ... \n";
 	demo_atomics();
 }
 
