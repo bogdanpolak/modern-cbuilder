@@ -40,8 +40,8 @@ void block_code_migration() {
 void block_parallel_code() {
 	std::cout << "[demo] Use std::thread and std::mutex... \n";
 	demo_std_thread_and_mutex();
-	std::cout << "[demo] from cppreference std::thread and std::mutex... \n";
-	demo_cppreference_mutex_thread();
+	std::cout << "[demo] simulate WWW page get (std::mutex & std::thread) ... \n";
+	demo_webpage_mutex_thread();
 	std::cout << "[demo] atomics ... \n";
 	demo_atomics();
 }
