@@ -83,7 +83,4 @@ void demo_cpp17_auto() {
 	std::vector<int> vi2(20);
 	std::generate(vi2.begin(), vi2.end(), [](){ return std::rand() % 99; });
 	std::cout << "  list 2 : {" << intVectorJoin(vi2,", ") << "}\n";
-
-	std::cout << '\n';
-
 }

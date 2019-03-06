@@ -28,7 +28,7 @@ void block_cpp17_basics() {
 	demo_move_constructor ();
 	std::cout << "[demo] C++17 auto type declaration... \n";
 	demo_cpp17_auto();
-	std::cout << "[demo] C++17 auto features... \n";
+	std::cout << "[demo] C++17 misc features... \n";
 	demo_cpp17_misc();
 }
 

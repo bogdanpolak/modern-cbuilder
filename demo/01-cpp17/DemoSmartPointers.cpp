@@ -9,27 +9,27 @@
 #include <iostream>
 #include <memory>
 
-class Foo {
+class Bar {
 public:
-	Foo() { std::cout << "  -> object constructed ... \n"; }
-	~Foo() { std::cout << "  -> object destroyed ... \n"; }
-	void dosomething() { std::cout << "  -> object is working ... \n"; }
+	Bar() { std::cout << "constructed, "; }
+	void dosomething() { std::cout << "working, "; }
+	~Bar() { std::cout << "destroyed, "; }
 };
 
 void demo_SmartPointers() {
 	// -------- -------- -------- --------
-	std::cout << "begin \n";
+	std::cout << "  object bar: ";
 	{
-		Foo* foo = new Foo();
-		foo->dosomething();
+		Bar* bar = new Bar();
+		bar->dosomething();
 	}
-	std::cout << "end \n";
+	std::cout << std::endl;
 	// -------- -------- -------- --------
-	std::cout << "begin \n";
+	std::cout << "  object bar: ";
 	{
-		auto foo = std::make_unique<Foo>();
-		foo->dosomething();
+		auto bar = std::make_unique<Bar>();
+		bar->dosomething();
 	}
-	std::cout << "end \n";
+	std::cout << std::endl;
 	// -------- -------- -------- --------
 }
