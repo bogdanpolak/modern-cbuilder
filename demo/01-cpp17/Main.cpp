@@ -28,7 +28,7 @@ void block_cpp17_basics() {
 	demo_move_constructor ();
 	std::cout << "[demo] C++17 auto type declaration... \n";
 	demo_cpp17_auto();
-	std::cout << "[demo] C++17 auto features... \n";
+	std::cout << "[demo] C++17 misc features... \n";
 	demo_cpp17_misc();
 }
 
@@ -40,16 +40,16 @@ void block_code_migration() {
 void block_parallel_code() {
 	std::cout << "[demo] Use std::thread and std::mutex... \n";
 	demo_std_thread_and_mutex();
-	std::cout << "[demo] from cppreference std::thread and std::mutex... \n";
-	demo_cppreference_mutex_thread();
+	std::cout << "[demo] simulate WWW page get (std::mutex & std::thread) ... \n";
+	demo_webpage_mutex_thread();
 	std::cout << "[demo] atomics ... \n";
 	demo_atomics();
 }
 
 int _tmain(int argc, _TCHAR* argv[]) {
 	block_cpp17_basics();
-	// block_code_migration();
-	// block_parallel_code();
+	block_code_migration();
+	block_parallel_code();
 	// --------------------
 	std::system("pause");
 	return 0;

@@ -100,8 +100,8 @@ void demo_cpp17_misc(){
 		auto valueA = get_value(a);
 		auto valuePA = get_value(pa);
 
-		std::cout << valueA << std::endl;
-		std::cout << valuePA << std::endl;
+		std::cout << "  " << valueA << std::endl;
+		std::cout << "  " << valuePA << std::endl;
 	}
 }
 

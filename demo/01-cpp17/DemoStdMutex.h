@@ -5,4 +5,4 @@
 //---------------------------------------------------------------------------
 #endif
 
-void demo_cppreference_mutex_thread();
+void demo_webpage_mutex_thread();

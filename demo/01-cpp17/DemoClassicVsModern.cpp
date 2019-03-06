@@ -29,8 +29,8 @@ void classic_cpp_code() {
 
 	std::map<int, std::wstring>map;
 	map[1] = L"One";
-	map[2] = L"Two";
-	map[3] = L"Three";
+	map[5] = L"Two";
+	map[7] = L"Three";
 
 	for (std::map<int, std::wstring>::iterator it = map.begin();
 	it != map.end(); ++it) {
@@ -39,10 +39,12 @@ void classic_cpp_code() {
 			pair.second.c_str() << "}" << std::endl;
 	};
 
+	std::cout << "  int vector items: ";
 	for (std::vector<int>::const_iterator it = items.begin();
-	it != items.end(); it++) {
-		std::wcout << *it << std::endl;
+		it != items.end(); it++) {
+		std::cout << *it << " ";
 	}
+	std::cout << std::endl;
 
 	TFoo* foo = new TFoo();
 	try {
@@ -63,8 +65,10 @@ void modern_cpp_code() {
 		std::wcout << "  {" << pair.first << ", " <<
 			pair.second.c_str() << "}" << std::endl;
 
+	std::cout << "  int vector items: ";
 	for (const auto i : items)
-		std::wcout << i << std::endl;
+		std::cout << i << " ";
+	std::cout << std::endl;
 
 	std::unique_ptr<TFoo> foo(new TFoo());
 	Test(*foo);
