@@ -24,18 +24,6 @@ object Form1: TForm1
     OnPaint = PaintBox1Paint
     ExplicitLeft = -2
   end
-  object PaintBox2: TPaintBox
-    AlignWithMargins = True
-    Left = 3
-    Top = 270
-    Width = 792
-    Height = 206
-    Align = alTop
-    OnPaint = PaintBox2Paint
-    ExplicitLeft = 320
-    ExplicitTop = 280
-    ExplicitWidth = 105
-  end
   object GroupBox1: TGroupBox
     AlignWithMargins = True
     Left = 3
@@ -50,23 +38,54 @@ object Form1: TForm1
       AlignWithMargins = True
       Left = 5
       Top = 18
-      Width = 116
+      Width = 124
       Height = 25
+      Action = actRunQuickSort
       Align = alLeft
-      Caption = 'Button1'
+      Caption = 'Sortuj szybko'
       TabOrder = 0
-      OnClick = Button1Click
+    end
+    object Button2: TButton
+      AlignWithMargins = True
+      Left = 135
+      Top = 18
+      Width = 124
+      Height = 25
+      Action = actRunBubbleSort
+      Align = alLeft
+      TabOrder = 1
+    end
+    object Button3: TButton
+      AlignWithMargins = True
+      Left = 265
+      Top = 18
+      Width = 124
+      Height = 25
+      Action = actShuflleData
+      Align = alLeft
+      TabOrder = 2
     end
   end
   object tmrReady: TTimer
     Interval = 1
     OnTimer = tmrReadyTimer
-    Left = 40
-    Top = 216
+    Left = 32
+    Top = 88
   end
-  object Timer1: TTimer
-    Interval = 100
-    Left = 112
-    Top = 224
+  object ActionList1: TActionList
+    Left = 104
+    Top = 88
+    object actRunQuickSort: TAction
+      Caption = 'Action1'
+      OnExecute = actRunQuickSortExecute
+    end
+    object actRunBubbleSort: TAction
+      Caption = 'Sortuj b'#261'belkowo'
+      OnExecute = actRunBubbleSortExecute
+    end
+    object actShuflleData: TAction
+      Caption = 'Losuj dane'
+      OnExecute = actShuflleDataExecute
+    end
   end
 end
