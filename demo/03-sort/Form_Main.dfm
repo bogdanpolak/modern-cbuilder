@@ -1,0 +1,63 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 453
+  ClientWidth = 798
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnResize = FormResize
+  PixelsPerInch = 96
+  TextHeight = 13
+  object PaintBox1: TPaintBox
+    AlignWithMargins = True
+    Left = 3
+    Top = 58
+    Width = 792
+    Height = 206
+    Align = alTop
+    OnPaint = PaintBox1Paint
+    ExplicitTop = 3
+  end
+  object GroupBox1: TGroupBox
+    AlignWithMargins = True
+    Left = 3
+    Top = 3
+    Width = 792
+    Height = 49
+    Align = alTop
+    Caption = 'GroupBox1'
+    Padding.Bottom = 1
+    TabOrder = 0
+    ExplicitLeft = 8
+    ExplicitTop = -12
+    ExplicitWidth = 798
+    object Button1: TButton
+      AlignWithMargins = True
+      Left = 5
+      Top = 18
+      Width = 116
+      Height = 25
+      Align = alLeft
+      Caption = 'Button1'
+      TabOrder = 0
+      OnClick = Button1Click
+    end
+  end
+  object tmrReady: TTimer
+    Interval = 1
+    OnTimer = tmrReadyTimer
+    Left = 40
+    Top = 216
+  end
+  object Timer1: TTimer
+    Interval = 100
+    Left = 112
+    Top = 224
+  end
+end
