@@ -15,7 +15,7 @@ TForm1 *Form1;
 
 // ---------------------------------------------------------------------------
 //  HslConverter.cpp
-//  Hue Saturation Light - Colors Converter
+//  Hue Saturation Lightness - Colors Converter
 // ---------------------------------------------------------------------------
 namespace hsl {
 	static float HueToRGB(float v1, float v2, float vH) {
@@ -120,10 +120,13 @@ private:
 // BoardDraw.cpp
 // ---------------------------------------------------------------------------
 struct BoardDraw {
-	static void drawBoardItem (int value, int index, TCanvas* canvas,
-		int boardHeight)
+	static void drawBoardItem (const Board& board, int index,
+		TPaintBox* paintbox)
 	{
+		TCanvas* canvas = paintbox->Canvas;
+		int boardHeight = paintbox->Height;
 		int x = index*3;
+		int value = board.data[index];
 		int len = boardHeight * value / Board::MAX_VALUE;
 		int hue = (int)(360.0f*value/Board::MAX_VALUE);
 		canvas->Pen->Color = hsl::CalculateVclColor(hue , 1.00f, 0.35f);
@@ -135,7 +138,7 @@ struct BoardDraw {
 	static void drawBoard(const Board& board, TPaintBox* paintbox)
 	{
 		for (unsigned int i=0; i<board.data.size(); i++) {
-			drawBoardItem(board.data[i],i,paintbox->Canvas,paintbox->Height);
+			drawBoardItem(board,i,paintbox);
 		}
 	}
 };
@@ -144,17 +147,16 @@ struct BoardDraw {
 // BoardVclView.cpp
 // ---------------------------------------------------------------------------
 struct BoardVclView : BoardView {
-	TPaintBox* paintbx;
-	BoardVclView (TPaintBox* aPaintBox1) : paintbx(aPaintBox1) {};
+	TPaintBox* paintbox;
+	BoardVclView (TPaintBox* aPaintBox1) : paintbox(aPaintBox1) {};
 	virtual void visualizeSwap (const Board& board, int i, int j) {
-		int vi = board.data[i];
-		int vj = board.data[j];
-		TThread::Synchronize(NULL, [&]() {
-			BoardDraw::drawBoardItem(vi,i,paintbx->Canvas,paintbx->Height);
-			BoardDraw::drawBoardItem(vj,j,paintbx->Canvas,paintbx->Height);
-		});
+		TThread::Synchronize(NULL,
+			[&]() {
+				BoardDraw::drawBoardItem(board,i,paintbox);
+				BoardDraw::drawBoardItem(board,j,paintbox);
+			}
+		);
 		for (int i=0; i < 100000; i++) { }  // sleep < 1ms
-		// Sleep(1);
 	};
 };
 
