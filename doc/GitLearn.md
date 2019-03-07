@@ -119,7 +119,7 @@ $ git remote add xstream https://github.com/andrea-magni/MARS.git
 ```
 
 
-# Praca grupowa z urzyciem gałęzi
+# Praca grupowa z użyciem gałęzi
 
 Najczęściej stosowanym sposobem pracy z repozytorium Git jest korzystanie w wielu gałęzi. Programiści przyzywaczajeni do starszych systemów wersjonowania takich jak `CVS` lub `Subversion` obawaiją się stosowania wielu gałęzi i zarządzania nimi. W przypadku Git-a jest to podstawowy tryb pracy.
 
